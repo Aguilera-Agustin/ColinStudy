@@ -1,6 +1,6 @@
 import { Avatar, Container, Grid, Hidden, makeStyles, Typography, Button } from '@material-ui/core'
 import React from 'react'
-
+import {UserInfo} from './UserInfo'
 
 const img = 'https://source.unsplash.com/random'
 
@@ -21,17 +21,7 @@ const useStyles = makeStyles((theme)=>({
         width: theme.spacing(10),
         height: theme.spacing(10),
     },
-    score:{
-        width: '100%',
-        marginTop:'3em',
-        display:'flex',
-        justifyContent:'center'
-    },
-    eachScore:{
-        display: 'flex',
-        flexDirection:'column',
-        margin: '0 40px'
-    },
+    
     buttonContainer:{
         width:'100%',
         display:'flex',
@@ -50,20 +40,7 @@ export const Profile = () => {
             <Typography variant='h6' style={{marginTop:'3rem'}} align='center'>Agustín Aguilera</Typography>
             <Typography variant='subtitle2' color="textSecondary" align='center'>Beta Tester</Typography>
             <Hidden only="xs">
-                <div className={classes.score}>
-                    <div className={classes.eachScore}>
-                    <Typography variant='button' align='center'><b>100</b></Typography>
-                    <Typography variant='subtitle2' color="textSecondary" align='center'>Intervenciones</Typography>
-                    </div>
-                    <div className={classes.eachScore}>
-                    <Typography variant='button' align='center'><b>100</b></Typography>
-                    <Typography variant='subtitle2' color="textSecondary" align='center'>Reconocimientos</Typography>
-                    </div>
-                    <div className={classes.eachScore}>
-                    <Typography variant='button' align='center'><b>100</b></Typography>
-                    <Typography variant='subtitle2' color="textSecondary" align='center'>Buenos Amigos</Typography>
-                    </div>
-                </div>
+                <UserInfo/>
             </Hidden>
             <div className={classes.buttonContainer}>
                 <Button variant="contained" color="primary" >
