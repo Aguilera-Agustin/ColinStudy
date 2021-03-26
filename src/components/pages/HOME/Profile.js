@@ -1,4 +1,4 @@
-import { Avatar, Container, Grid, Hidden, makeStyles, Typography, Button } from '@material-ui/core'
+import { Avatar, Container, Hidden, makeStyles, Typography, Button } from '@material-ui/core'
 import React from 'react'
 import {UserInfo} from './UserInfo'
 
