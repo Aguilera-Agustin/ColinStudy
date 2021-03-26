@@ -30,10 +30,7 @@ export const NavDrawer = () => {
             <ListLinks setOpen={setOpen}/>
           </Drawer>
         </Hidden>
-        <Hidden only={['xl','lg', 'md', 'sm']} implementation="css">
           <Navbar setOpen={setOpen} isOpen = {open}/>
-        </Hidden>
-          
       </div>
     </>
   );

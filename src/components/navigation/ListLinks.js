@@ -3,8 +3,7 @@ import React from 'react'
 import { Divider, List, ListItem, ListItemText, Typography } from '@material-ui/core'
 import { makeStyles } from "@material-ui/core/styles";
 import { Link } from 'react-router-dom';
-
-
+import routes from '../../data/navbarRoutes';
 
 const drawerWidth = 250;
 const useStyles = makeStyles((theme) => ({
@@ -17,45 +16,35 @@ const useStyles = makeStyles((theme) => ({
 
 export const ListLinks = ({setOpen}) => {
     const classes = useStyles()
-    const routes = [{
-            route: '/welcome',
-            title: 'Home'
-        },
-        {
-            route: '/shifts',
-            title: 'Shifts'
-        },
-        {
-            route: '/admin',
-            title: 'Manage'
-        },
-        {
-            route: '/team',
-            title: 'Team'
-        },
-        {
-            route: '/register',
-            title: 'New STAFF'
+    const setDivider = (index) =>{
+        if(index===2 || index === 4){
+            return <Divider/>
         }
-
-    ]
+        else{
+            return false
+        }
+    }
     return (
         <>
             <div className={classes.toolbar} style={{display:"flex", alignItems:"center", justifyContent:"center", flexDirection:"column"}}>
                 <Typography variant="button" color="initial">
-                  ColinShifts  
+                  @Username  
                 </Typography>
                 <Typography variant="caption" color="initial">
-                  username
+                  Team
                 </Typography>
             </div>
             <Divider />
             <List disablePadding className={classes.drawer}>
           
-                    {routes.map((item)=>(
-                        <ListItem button component={Link} to={item.route} key={item.route} onClick={() => setOpen(false)}>
-                        <ListItemText primary={item.title} />
-                    </ListItem>
+                    {routes.map((item, index)=>(
+                        <React.Fragment key={item.route}>
+                        <ListItem button component={Link} to={item.route}  onClick={() => setOpen(false)}>
+                            <ListItemText primary={item.title} />
+                        </ListItem>
+                        {setDivider(index)}
+                        </React.Fragment>
+                        
                     ))}
              
                 <Divider/>

@@ -4,8 +4,6 @@ import { ColinStudy } from './ColinStudy';
 import './index.css';
 
 ReactDOM.render(
-  <React.StrictMode>
-    <ColinStudy />
-  </React.StrictMode>,
+    <ColinStudy />,
   document.getElementById('root')
 );

@@ -22,7 +22,7 @@ const useStyles = makeStyles((theme)=>({
 
 export const AppRouter = () => {
 
-    const authenticated = false
+    const authenticated = true
     const classes = useStyles()
     return (
         <Router>

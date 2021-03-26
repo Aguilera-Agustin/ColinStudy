@@ -24,8 +24,14 @@ export const DashboardRouter = () => {
             
             <main className={classes.content}>
             <Switch>
-                <Route path="/home" exact component={ HomePage }/>
-                <Redirect to="/home" />
+                <Route path="/usuario/perfil" exact component={ HomePage }/>
+                <Route path="/usuario/equipo" exact component={ HomePage }/>
+                <Route path="/profesores" exact component={ HomePage }/>
+                <Route path="/tarea/multiple-choice" exact component={ HomePage }/>
+                <Route path="/tarea/desafio-revision" exact component={ HomePage }/>
+                <Route path="/info/preguntas" exact component={ HomePage }/>
+                <Route path="/info/sugerencias" exact component={ HomePage }/>
+                <Redirect to="/usuario/perfil" />
             </Switch>
             </main>
         </div>
