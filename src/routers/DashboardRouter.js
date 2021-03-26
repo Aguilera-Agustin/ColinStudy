@@ -4,6 +4,7 @@ import { Redirect, Route, Switch } from 'react-router-dom'
 
 import { makeStyles } from '@material-ui/core'
 import { Profile } from '../components/pages/HOME/Profile'
+import { SelectMC } from '../components/pages/MULTIPLECHOICE/SelectMC'
 
 const drawerWidth = 250
 const useStyles = makeStyles((theme)=>({
@@ -27,7 +28,7 @@ export const DashboardRouter = () => {
                 <Route path="/usuario/perfil" exact component={ Profile }/>
                 <Route path="/usuario/equipo" exact component={ Profile }/>
                 <Route path="/profesores" exact component={ Profile }/>
-                <Route path="/tarea/multiple-choice" exact component={ Profile }/>
+                <Route path="/tarea/multiple-choice" exact component={ SelectMC }/>
                 <Route path="/tarea/desafio-revision" exact component={ Profile }/>
                 <Route path="/info/preguntas" exact component={ Profile }/>
                 <Route path="/info/sugerencias" exact component={ Profile }/>
