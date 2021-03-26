@@ -10,8 +10,9 @@ const useStyles = makeStyles((theme)=>({
         backgroundPosition:'center',
         backgroundSize:'cover',
         width: '100%',
-        height: '30vh',
+        height: '13vw',
         display:'flex',
+        marginTop:'1rem',
         alignItems:'flex-end',
         justifyContent:'center'
     },

@@ -31,6 +31,8 @@ export const NavDrawer = () => {
           </Drawer>
         </Hidden>
           <Navbar setOpen={setOpen} isOpen = {open}/>
+
+          
       </div>
     </>
   );
