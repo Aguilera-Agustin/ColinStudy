@@ -3,7 +3,7 @@ import { Redirect, Route, Switch } from 'react-router-dom'
 
 
 import { makeStyles } from '@material-ui/core'
-import { HomePage } from '../components/pages/HOME/HomePage'
+import { Profile } from '../components/pages/HOME/Profile'
 
 const drawerWidth = 250
 const useStyles = makeStyles((theme)=>({
@@ -24,13 +24,13 @@ export const DashboardRouter = () => {
             
             <main className={classes.content}>
             <Switch>
-                <Route path="/usuario/perfil" exact component={ HomePage }/>
-                <Route path="/usuario/equipo" exact component={ HomePage }/>
-                <Route path="/profesores" exact component={ HomePage }/>
-                <Route path="/tarea/multiple-choice" exact component={ HomePage }/>
-                <Route path="/tarea/desafio-revision" exact component={ HomePage }/>
-                <Route path="/info/preguntas" exact component={ HomePage }/>
-                <Route path="/info/sugerencias" exact component={ HomePage }/>
+                <Route path="/usuario/perfil" exact component={ Profile }/>
+                <Route path="/usuario/equipo" exact component={ Profile }/>
+                <Route path="/profesores" exact component={ Profile }/>
+                <Route path="/tarea/multiple-choice" exact component={ Profile }/>
+                <Route path="/tarea/desafio-revision" exact component={ Profile }/>
+                <Route path="/info/preguntas" exact component={ Profile }/>
+                <Route path="/info/sugerencias" exact component={ Profile }/>
                 <Redirect to="/usuario/perfil" />
             </Switch>
             </main>
