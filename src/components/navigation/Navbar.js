@@ -19,7 +19,7 @@ export const Navbar = ({setOpen}) => {
     return (
         <AppBar position="static" color="primary">
             <Toolbar>
-                <Hidden xsUp> 
+                <Hidden smUp> 
                     <IconButton edge="start" className={classes.menuButton} onClick={() => setOpen(true)}  color="inherit"> 
                         <MenuIcon />
                     </IconButton>
