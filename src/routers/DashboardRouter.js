@@ -4,6 +4,7 @@ import { makeStyles } from '@material-ui/core'
 import {SelectMcPage} from '../components/pages/MULTIPLECHOICE/SelectMcPage'
 import {ProfilePage} from '../components/pages/HOME/ProfilePage'
 import { MultipleChoicePage } from '../components/pages/MULTIPLECHOICE/MultipleChoicePage'
+import { SelectTaskPage } from '../components/pages/TASKS/SelectTaskPage'
 
 
 const drawerWidth = 250
@@ -29,7 +30,7 @@ export const DashboardRouter = () => {
                 <Route path="/usuario/equipo" exact component={ ProfilePage }/>
                 <Route path="/profesores" exact component={ ProfilePage }/>
                 <Route path="/tarea/multiple-choice" exact component={ MultipleChoicePage }/>
-                <Route path="/tarea/desafio-revision" exact component={ ProfilePage }/>
+                <Route path="/tarea/desafio-revision" exact component={ SelectTaskPage }/>
                 <Route path="/info/preguntas" exact component={ ProfilePage }/>
                 <Route path="/info/sugerencias" exact component={ ProfilePage }/>
                 <Redirect to="/usuario/perfil" />
