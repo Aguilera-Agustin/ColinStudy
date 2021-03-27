@@ -24,7 +24,7 @@ const columns = [
   ];
 
 
-export const SelectMC = () => {
+export const SelectMcPage = () => {
     return (
         <Container style={{margin:'1rem 0'}}>
         <Typography variant="h4">Multiple Choice</Typography>

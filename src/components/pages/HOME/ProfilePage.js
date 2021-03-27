@@ -30,7 +30,7 @@ const useStyles = makeStyles((theme)=>({
     }
 }))
 
-export const Profile = () => {
+export const ProfilePage = () => {
     const classes = useStyles()
     return (
         <Container>

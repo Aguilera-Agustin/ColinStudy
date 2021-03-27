@@ -1,18 +1,18 @@
 import React from 'react'
 import { Redirect, Route, Switch } from 'react-router-dom'
-
-
 import { makeStyles } from '@material-ui/core'
-import { Profile } from '../components/pages/HOME/Profile'
-import { SelectMC } from '../components/pages/MULTIPLECHOICE/SelectMC'
+import {SelectMcPage} from '../components/pages/MULTIPLECHOICE/SelectMcPage'
+import {ProfilePage} from '../components/pages/HOME/ProfilePage'
+import { MultipleChoicePage } from '../components/pages/MULTIPLECHOICE/MultipleChoicePage'
+
 
 const drawerWidth = 250
 const useStyles = makeStyles((theme)=>({
     content: {
-        padding: theme.spacing(1, 3)
-      },
-      root: {
-        [theme.breakpoints.up("sm")]: { paddingLeft: drawerWidth }
+        padding: theme.spacing(1, 3),
+    },
+    root: {
+        [theme.breakpoints.up("sm")]: { paddingLeft: drawerWidth },
       },
       toolbar: theme.mixins.toolbar,
 }))
@@ -25,13 +25,13 @@ export const DashboardRouter = () => {
             
             <main className={classes.content}>
             <Switch>
-                <Route path="/usuario/perfil" exact component={ Profile }/>
-                <Route path="/usuario/equipo" exact component={ Profile }/>
-                <Route path="/profesores" exact component={ Profile }/>
-                <Route path="/tarea/multiple-choice" exact component={ SelectMC }/>
-                <Route path="/tarea/desafio-revision" exact component={ Profile }/>
-                <Route path="/info/preguntas" exact component={ Profile }/>
-                <Route path="/info/sugerencias" exact component={ Profile }/>
+                <Route path="/usuario/perfil" exact component={ ProfilePage }/>
+                <Route path="/usuario/equipo" exact component={ ProfilePage }/>
+                <Route path="/profesores" exact component={ ProfilePage }/>
+                <Route path="/tarea/multiple-choice" exact component={ MultipleChoicePage }/>
+                <Route path="/tarea/desafio-revision" exact component={ ProfilePage }/>
+                <Route path="/info/preguntas" exact component={ ProfilePage }/>
+                <Route path="/info/sugerencias" exact component={ ProfilePage }/>
                 <Redirect to="/usuario/perfil" />
             </Switch>
             </main>
