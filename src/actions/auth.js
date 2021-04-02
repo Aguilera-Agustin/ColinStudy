@@ -26,19 +26,59 @@ export const startGoogleLogin = () => {
         const provider = new firebase.auth.GoogleAuthProvider()
         firebase.auth().signInWithPopup(provider)
         .then((res)=>{
-            const user = {
-                uid: res.user.uid,
-                email: res.user.email,
-                name:res.user.displayName,
-                picture:res.user.photoURL,
+            db.collection("usuarios").doc(res.user.email).get().then((eachUser)=>{
+               if(eachUser.exists){
+                    if(eachUser.data().name){
+                        console.log("El usuario ya está creado")
+                        dispatch(login(eachUser.data()))
+                    }
+                    else{
+                        const user={
+                            ...eachUser.data(),
+                            email: res.user.email,
+                            banner: "https://picsum.photos/1300/200",
+                            name: res.user.displayName,
+                            picture: res.user.photoURL,
+                            profesor: false,
+                            uid: res.user.uid
+                        }
+                        db.collection("usuarios").doc(res.user.email).set(user)
+                        .then(success=>{
+                            dispatch(login(user))
+                        })
+                        .catch(registerError=>{
+                            dispatch(setError(registerError))
+                        })
+                    }
+                }
+                else{
+                    dispatch(setError("El usuario no existe"))
+                }
+                dispatch(endLoading())
 
-            }
-            db.collection("cursos").doc("estructuras").set(user)
-            dispatch(endLoading())
-            dispatch(login(user))
+                
+            })
+            /*
+            db.collection("usuarios").doc(res.user.email).set({...eachUser.data(),
+                profesor:false, 
+                banner: `https://picsum.photos/1300/200`, 
+                name: res.user.displayName,
+                picture: res.user.photoURL,
+                uid: res.user.uid
+            })
+            
+            */
+           
+           
+           
         })
         .catch((err)=>{
             dispatch(setError(err.message))
         })
     }
+
+}
+
+const crearUsuario = (user) =>{
+    
 }
