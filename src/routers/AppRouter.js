@@ -10,7 +10,7 @@ import { DashboardRouter } from './DashboardRouter';
 import { NavDrawer } from '../components/navigation/NavDrawer'
 import { makeStyles } from '@material-ui/core';
 import { LoginPage } from '../components/pages/LOGIN/LoginPage';
-
+import { useSelector } from 'react-redux'
 
 const drawerWidth = 250
 
@@ -22,7 +22,7 @@ const useStyles = makeStyles((theme)=>({
 
 export const AppRouter = () => {
 
-    const authenticated = true
+    const authenticated = useSelector(state=> state.auth.authenticated)
     const classes = useStyles()
     return (
         <Router>

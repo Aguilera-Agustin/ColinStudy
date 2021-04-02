@@ -8,13 +8,12 @@ const initialState = {
 
 const authReducer = (state= initialState, action) => {
     switch (action.type) {
-        case types.login:
+        case types.loginUser:
             return {
                 ...state,
+                error:null,
                 authenticated: true,
-                uid: action.payload.uid,
-                name: action.payload.name,
-                error: null
+                user: action.payload.user
             }
         case types.startLoading:
             return {
@@ -32,6 +31,8 @@ const authReducer = (state= initialState, action) => {
             }
         case types.loginError:
             return {
+                ...state,
+                loading:false,
                 authenticated: false,
                 error: action.payload.message
             }

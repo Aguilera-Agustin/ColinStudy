@@ -1,7 +1,11 @@
 import { makeStyles, Typography, Button, Grid, Hidden } from '@material-ui/core'
 import React from 'react'
+import {useDispatch, useSelector} from 'react-redux'
 import cardData from '../../../data/mainCardsData'
 import {InfoCard} from './InfoCard'
+import {startGoogleLogin} from '../../../actions/auth'
+import Alert from '@material-ui/lab/Alert';
+
 
 const useStyles = makeStyles((theme)=>({
     mainContainer:{
@@ -25,6 +29,12 @@ const data = cardData
 
 export const LoginPage = () => {
     const classes = useStyles()
+    const dispatch = useDispatch()
+    const error = useSelector(state=> state.auth.error) 
+    const loading = useSelector(state=> state.auth.loading) 
+    const handleLogin = () =>{
+        dispatch(startGoogleLogin())
+    }
     return (
         <>
             <div className={classes.mainContainer}>
@@ -32,10 +42,16 @@ export const LoginPage = () => {
                 <Typography style={{marginTop:'10px'}} variant="subtitle2" align="center" color="textSecondary">Sitio gratuito de enseñanza para desarrolladores.</Typography>
                 <Typography style={{marginTop:'3px'}} variant="subtitle2" align="center" color="textSecondary">Creá,compartí,aprendé y ayudá.</Typography>
                 <div className={classes.primaryButton}>
-                    <Button variant="contained" style={{width:'10rem'}} color="primary">
+                    <Button onClick={handleLogin} disabled={loading} variant="contained" style={{width:'10rem'}} color="primary">
                     COMENZAR
                     </Button>
                 </div>
+                {error&&(
+                    <div style={{display:'flex', justifyContent:'center', marginTop:'1rem'}}>
+                        <Alert severity="error" style={{width:'50%'}}>Error al iniciar sesión. Intentelo nuevamente!</Alert>
+                    </div>)
+                }
+
             </div>
             <Hidden only="xs">
                 <Grid container justify="space-around" className={classes.cards}>
