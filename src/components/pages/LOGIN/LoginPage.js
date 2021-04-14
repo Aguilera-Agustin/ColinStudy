@@ -35,6 +35,8 @@ export const LoginPage = () => {
     const handleLogin = () =>{
         dispatch(startGoogleLogin())
     }
+
+
     return (
         <>
             <div className={classes.mainContainer}>

@@ -57,20 +57,7 @@ export const startGoogleLogin = () => {
                 dispatch(endLoading())
 
                 
-            })
-            /*
-            db.collection("usuarios").doc(res.user.email).set({...eachUser.data(),
-                profesor:false, 
-                banner: `https://picsum.photos/1300/200`, 
-                name: res.user.displayName,
-                picture: res.user.photoURL,
-                uid: res.user.uid
-            })
-            
-            */
-           
-           
-           
+            }) 
         })
         .catch((err)=>{
             dispatch(setError(err.message))
@@ -79,6 +66,3 @@ export const startGoogleLogin = () => {
 
 }
 
-const crearUsuario = (user) =>{
-    
-}

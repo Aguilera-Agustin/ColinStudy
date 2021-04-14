@@ -18,7 +18,7 @@ export const InfoCard = ({data}) => {
                 </CardContent>
           
             <CardActions>
-                <Button size="small" color="primary">
+                <Button size="small" href={data.link} color="primary">
                 Ver Más
                 </Button>
             </CardActions>

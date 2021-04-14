@@ -1,6 +1,8 @@
 import { Avatar, Container, Hidden, makeStyles, Typography, Button } from '@material-ui/core'
 import React from 'react'
 import {UserInfo} from './UserInfo'
+import {useSelector} from 'react-redux'
+
 
 const img = 'https://source.unsplash.com/random'
 
@@ -32,12 +34,13 @@ const useStyles = makeStyles((theme)=>({
 
 export const ProfilePage = () => {
     const classes = useStyles()
+    const user = useSelector(state=>state.auth.user)
     return (
         <Container>
             <div className={classes.mainImg}>
                 <Avatar className={classes.mainAvatar}>A</Avatar>
             </div>
-            <Typography variant='h6' style={{marginTop:'3rem'}} align='center'>Agustín Aguilera</Typography>
+            <Typography variant='h6' style={{marginTop:'3rem'}} align='center'>{user.name}</Typography>
             <Typography variant='subtitle2' color="textSecondary" align='center'>Beta Tester</Typography>
             <Hidden only="xs">
                 <UserInfo/>
